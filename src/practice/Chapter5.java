@@ -1,0 +1,31 @@
+package practice;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Chapter5 {
+
+	public static void main(String[] args) {
+		List<Task> tasks = new ArrayList<>();
+		tasks.add(new Task(LocalDate.of(2021, 10, 21), "牛乳を買う。"));
+		tasks.add(new Task(LocalDate.of(2021, 9, 15), "○○社面談。"));
+		tasks.add(new Task(LocalDate.of(2021, 12, 4), "手帳を買う。"));
+		tasks.add(new Task(LocalDate.of(2021, 8, 10), "散髪に行く。"));
+		tasks.add(new Task(LocalDate.of(2021, 11, 9), "スクールの課題を解く。"));
+
+		/* 要素の並び替えsortメソッド
+		   参考：https://qiita.com/araharu/questions/59610020a532f3d2e9c1
+		       https://it-kyujin.jp/article/detail/1220/　　
+		  */
+		Collections.sort(tasks, Comparator.comparing(Task::getDate));
+
+		for (Task task : tasks) {
+			System.out.println(task);
+		}
+
+	}
+
+}
